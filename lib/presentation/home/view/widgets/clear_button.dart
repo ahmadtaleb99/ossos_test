@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ossos_test/presentation/resources/color_manager.dart';
 import 'package:ossos_test/presentation/resources/strings_manager.dart';
 
 class ClearButton extends StatelessWidget {
@@ -7,14 +9,24 @@ class ClearButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      child: Row(
-        children: [
-          Icon(Icons.delete),
-          Text(AppStrings.clearText)
-        ],
-      )
+    return Container(
+
+      width: 150.w,
+      height: 50.h,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: ColorManager.red
+        ),
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.delete),
+            SizedBox(width: 5.w,),
+            Text(AppStrings.clearText)
+          ],
+        )
+      ),
     );
   }
 }

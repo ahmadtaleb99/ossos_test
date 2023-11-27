@@ -9,23 +9,22 @@ ThemeData getApplicationTheme() {
     primaryColor: ColorManager.primary,
     hintColor: Color(0xffa5a5a5),
 
-    appBarTheme: AppBarTheme(
-                  color: ColorManager.primary,
-                      foregroundColor: Colors.white
-    ),
+    appBarTheme:
+        AppBarTheme(color: ColorManager.primary, foregroundColor: Colors.white),
 
-
+    // elevated button them
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+            textStyle: getMediumStyle(
+                color: ColorManager.white, fontSize: FontSize.s17),
+            foregroundColor: ColorManager.primary,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)))),
 
     // text theme
     textTheme: TextTheme(
-
-
-        bodyMedium: getMediumStyle(color: ColorManager.black,fontSize: FontSize.s16),
-
-
+      bodyMedium:
+          getMediumStyle(color: ColorManager.black, fontSize: FontSize.s16),
     ),
-
-
-
   );
 }
