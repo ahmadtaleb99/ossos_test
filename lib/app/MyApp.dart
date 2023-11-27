@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ossos_test/presentation/resources/routes_manager.dart';
+import 'package:ossos_test/presentation/resources/theme_manager.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
@@ -40,6 +41,7 @@ class _MyAppState extends State<MyApp> {
             initialRoute: Routes.splashRoute,
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RouteGenerator.getRoute,
+            theme: getApplicationTheme(),
             navigatorKey: _navigatorKey,
           );
         });

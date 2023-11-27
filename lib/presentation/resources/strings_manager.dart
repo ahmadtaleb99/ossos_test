@@ -10,6 +10,7 @@ class AppStrings{
   static const String page2Button ='Go to page 2';
   static const String animations ='Animations';
   static const String pokemons ='Pokemons';
+  static const String home ='Home';
 
 
 
