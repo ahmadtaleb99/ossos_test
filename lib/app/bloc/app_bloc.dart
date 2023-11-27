@@ -23,6 +23,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
 
   Future<void> _onNameCleared(NameCleared event, Emitter<AppState> emit) async {
-      emit(AppState(null));
+      emit(const AppState(null));
   }
 }

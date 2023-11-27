@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:ossos_test/presentation/animations/animations_page.dart';
 import 'package:ossos_test/presentation/home/home_screen.dart';
 import 'package:ossos_test/presentation/resources/strings_manager.dart';
 import 'package:ossos_test/presentation/splash/view/splash_screen.dart';
@@ -7,6 +8,7 @@ import 'package:ossos_test/presentation/splash/view/splash_screen.dart';
 class Routes {
   static const String homeRoute = "/home";
   static const String splashRoute = "/splash";
+  static const String animations = "/animations";
 
 }
 
@@ -16,12 +18,12 @@ class RouteGenerator {
 
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (BuildContext context)  => const SplashScreen());
-        break;
 
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (BuildContext context)  => const HomeScreen());
-        break;
 
+      case Routes.animations:
+        return MaterialPageRoute(builder: (BuildContext context)  =>  AnimationsPage());
 
       default:
         return null;

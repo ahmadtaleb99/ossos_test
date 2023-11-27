@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ossos_test/presentation/resources/color_manager.dart';
 
 class CustomButton extends StatelessWidget {
@@ -15,7 +14,7 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(onPressed: onPressed, child: Text(text),style: ElevatedButton.styleFrom(
 
-        backgroundColor: color ?? ColorManager.primary,
+        backgroundColor: color ?? ColorManager.lightPrimary,
           foregroundColor: ColorManager.white
       ),),
     );

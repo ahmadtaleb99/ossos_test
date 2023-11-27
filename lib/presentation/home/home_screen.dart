@@ -5,6 +5,7 @@ import 'package:ossos_test/app/bloc/app_bloc.dart';
 import 'package:ossos_test/presentation/home/view/widgets/clear_button.dart';
 import 'package:ossos_test/presentation/home/view/widgets/custom_button.dart';
 import 'package:ossos_test/presentation/resources/color_manager.dart';
+import 'package:ossos_test/presentation/resources/routes_manager.dart';
 import 'package:ossos_test/presentation/resources/strings_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     bloc.add(NameChanged(name));
                   },
                   decoration:
-                  InputDecoration(hintText: AppStrings.nameHint),
+                  const InputDecoration(hintText: AppStrings.nameHint),
                 ),
               ),
               Padding(
@@ -60,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.symmetric(vertical: 5.h),
                 child: CustomButton(
                   text: AppStrings.page1Button,
-                  onPressed: () {},
-                  color: ColorManager.lightPrimary,
+                  onPressed: () => Navigator.pushNamed(context, Routes.animations),
+                  color: ColorManager.primary,
                 ),
               ),
               Padding(
