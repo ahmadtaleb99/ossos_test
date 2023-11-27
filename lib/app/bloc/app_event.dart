@@ -11,3 +11,11 @@ class NameChanged extends AppEvent {
   @override
   List<Object?> get props => [name];
 }
+
+
+class NameCleared extends AppEvent {
+
+  const NameCleared();
+  @override
+  List<Object?> get props => [];
+}

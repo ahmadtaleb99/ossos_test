@@ -7,11 +7,19 @@ import 'package:ossos_test/presentation/home/view/widgets/custom_button.dart';
 import 'package:ossos_test/presentation/resources/color_manager.dart';
 import 'package:ossos_test/presentation/resources/strings_manager.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  final TextEditingController _nameController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
+    final bloc = context.read<AppBloc>();
     return Scaffold(
       appBar: AppBar(
         title: const Text(AppStrings.home),
@@ -25,8 +33,9 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 30.h),
                 child: TextField(
+                  controller: _nameController,
                   onChanged: (name) {
-                    context.read<AppBloc>().add(NameChanged(name));
+                    bloc.add(NameChanged(name));
                   },
                   decoration:
                   InputDecoration(hintText: AppStrings.nameHint),
@@ -42,7 +51,10 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 375.h,),
               ClearButton(
-                onPressed: () {},
+                onPressed: ()  {
+                  bloc.add(NameCleared());
+                  _nameController.clear();
+                },
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 5.h),
