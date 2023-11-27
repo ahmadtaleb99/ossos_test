@@ -12,6 +12,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   Future<void> _onNameChanged(NameChanged event, Emitter<AppState> emit) async {
-    emit(AppState(event.name));
+    final name = event.name;
+
+    if(name.isEmpty )
+      emit(AppState(null));
+    else
+    emit(AppState(name));
   }
 }

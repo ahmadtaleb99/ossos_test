@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ossos_test/app/bloc/app_bloc.dart';
 import 'package:ossos_test/presentation/home/view/widgets/clear_button.dart';
 import 'package:ossos_test/presentation/home/view/widgets/custom_button.dart';
 import 'package:ossos_test/presentation/resources/color_manager.dart';
@@ -21,15 +23,22 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding:  EdgeInsets.symmetric(vertical: 30.h),
-                child: const TextField(
+                padding: EdgeInsets.symmetric(vertical: 30.h),
+                child: TextField(
+                  onChanged: (name) {
+                    context.read<AppBloc>().add(NameChanged(name));
+                  },
                   decoration:
                   InputDecoration(hintText: AppStrings.nameHint),
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.symmetric(vertical: 20.h),
-                child: Text('Your name'),
+                padding: EdgeInsets.symmetric(vertical: 20.h),
+                child: BlocBuilder<AppBloc, AppState>(
+                  builder: (context, state) {
+                    return Text(state.name ?? AppStrings.yourName);
+                  },
+                ),
               ),
               SizedBox(height: 375.h,),
               ClearButton(

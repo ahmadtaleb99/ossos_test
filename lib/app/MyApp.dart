@@ -1,8 +1,8 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ossos_test/app/bloc/app_bloc.dart';
 import 'package:ossos_test/presentation/resources/routes_manager.dart';
 import 'package:ossos_test/presentation/resources/theme_manager.dart';
 
@@ -37,12 +37,15 @@ class _MyAppState extends State<MyApp> {
             DeviceOrientation.portraitUp,
             DeviceOrientation.portraitDown,
           ]);
-          return MaterialApp(
-            initialRoute: Routes.splashRoute,
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: RouteGenerator.getRoute,
-            theme: getApplicationTheme(),
-            navigatorKey: _navigatorKey,
+          return BlocProvider(
+            create: (context) => AppBloc(),
+            child: MaterialApp(
+              initialRoute: Routes.splashRoute,
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: RouteGenerator.getRoute,
+              theme: getApplicationTheme(),
+              navigatorKey: _navigatorKey,
+            ),
           );
         });
   }
