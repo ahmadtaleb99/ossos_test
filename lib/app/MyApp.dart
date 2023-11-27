@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ossos_test/presentation/resources/routes_manager.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
@@ -36,8 +37,10 @@ class _MyAppState extends State<MyApp> {
             DeviceOrientation.portraitDown,
           ]);
           return MaterialApp(
-            navigatorKey: _navigatorKey,
+            initialRoute: Routes.splashRoute,
             debugShowCheckedModeBanner: false,
+            onGenerateRoute: RouteGenerator.getRoute,
+            navigatorKey: _navigatorKey,
           );
         });
   }

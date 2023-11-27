@@ -8,7 +8,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
 
-  // NotificationService().initNotifications();
   runApp(MyApp());
 
 
