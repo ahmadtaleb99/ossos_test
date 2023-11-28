@@ -11,7 +11,7 @@
 - Clean Architecture 
 - BLoC State Management
 - Infinite Scroll Pagination
-- get_it for dependecy injection
+- get_it for dependency injection
 - Dio for network calls
 - json_serializable for json serialization
 
