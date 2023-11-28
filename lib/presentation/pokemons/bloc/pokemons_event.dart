@@ -16,7 +16,7 @@ class PokemonsRequested extends PokemonsEvent{
 class PokemonDetailsRequested extends PokemonsEvent{
   final String url;
 
-  PokemonDetailsRequested({required this.url});
+  const PokemonDetailsRequested({required this.url});
   @override
   List<Object?> get props => [url ];
 

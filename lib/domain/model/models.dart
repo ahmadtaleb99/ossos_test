@@ -9,7 +9,7 @@ class Pokemon extends Equatable{
   final String name;
    final String? image;
 
-   Pokemon({required this.url,required this.name,required this.image});
+   const Pokemon({required this.url,required this.name,required this.image});
 
   @override
   List<Object?> get props => [url,name,image];

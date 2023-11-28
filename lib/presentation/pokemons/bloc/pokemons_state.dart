@@ -28,13 +28,10 @@ class PokemonsLoaded extends PokemonsState {
 }
 
 class PokemonsLoading extends PokemonsState {
-  @override
-  List<Object?> get props => [];
+
 }
 
 class PokemnonsFailed extends PokemonsState {
   final String message;
   PokemnonsFailed(this.message);
-  @override
-  List<Object> get props => [message];
 }

@@ -37,7 +37,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (BuildContext context) =>
             BlocProvider(
               create: (context) => PokemonsBloc(getIt<PokemonsRepository>())..add(PokemonsRequested()),
-              child: PokemonsPage(),
+              child: const PokemonsPage(),
             ));
 
       default:

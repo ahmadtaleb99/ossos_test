@@ -1,10 +1,8 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ossos_test/presentation/pokemons/bloc/pokemons_bloc.dart';
-import 'package:ossos_test/presentation/resources/color_manager.dart';
 
 class PokemonCard extends StatelessWidget {
   const PokemonCard({Key? key, required this.image, required this.name})
@@ -23,12 +21,12 @@ class PokemonCard extends StatelessWidget {
 
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(15),
         ),
         boxShadow: [
           BoxShadow(
-              color: Color(0xffbfbfbf),
+              color: const Color(0xffbfbfbf),
               blurRadius: 4,
               offset: Offset(4, 13.h),
               spreadRadius: -4.r),
@@ -39,7 +37,7 @@ class PokemonCard extends StatelessWidget {
           Expanded(
               flex: 3,
               child: image.isEmpty
-                  ? Center(child: CircularProgressIndicator())
+                  ? const Center(child:  CircularProgressIndicator())
                   : BlocBuilder<PokemonsBloc, PokemonsState>(
                 builder: (context, state) {
                   return Image.network(

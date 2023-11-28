@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 375.h,),
               ClearButton(
                 onPressed: ()  {
-                  bloc.add(NameCleared());
+                  bloc.add(const NameCleared());
                   _nameController.clear();
                 },
               ),

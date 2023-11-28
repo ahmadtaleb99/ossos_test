@@ -9,7 +9,7 @@ import 'package:ossos_test/presentation/resources/theme_manager.dart';
 class MyApp extends StatefulWidget {
   const MyApp._internal();
 
-  static final _instance = MyApp._internal();
+  static final _instance = const MyApp._internal();
 
   factory MyApp() => _instance;
 
@@ -20,7 +20,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _navigatorKey = GlobalKey<NavigatorState>();
 
-  NavigatorState get _navigator => _navigatorKey.currentState!;
 
 
   @override
