@@ -5,4 +5,5 @@ import 'package:ossos_test/domain/model/models.dart';
 
 abstract class PokemonsRepository   {
   Future<Either<Failure,List<Pokemon>>> getPokemons({required String page,});
+  Future<Either<Failure,PokemonDetails>> getPokemonDetails({required String url,});
 }

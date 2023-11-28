@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -21,8 +22,24 @@ class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
       _fetchPage(pageKey);
     });
     on<PokemonsRequested>(_onPokemonsRequested);
+    on<PokemonDetailsRequested>(_onPokemonDetailsRequested);
 
   }
+
+  Future<void> _onPokemonDetailsRequested(
+      PokemonDetailsRequested event, Emitter<PokemonsState> emit) async {
+
+    final either = await _pokemonsRepository.getPokemonDetails(url: event.url);
+
+    either.fold((failure) {
+      log(failure.toString());
+    }, (pokemons) {
+      log(pokemons.toString());
+    });
+
+
+  }
+
 
   Future<void> _onPokemonsRequested(
       PokemonsRequested event, Emitter<PokemonsState> emit) async {
@@ -36,6 +53,10 @@ class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
     either.fold((failure) {
       emit(PokemnonsFailed(failure.message));
     }, (pokemons) {
+
+      for(final pokemon in pokemons ){
+        add(PokemonDetailsRequested(url: pokemon.url));
+      }
       emit(PokemonsLoaded(pokemons: pokemons));
     });
 
@@ -72,6 +93,10 @@ class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
       pagingController.error = error;
     }
   }
+
+
+
+
 
 }
 

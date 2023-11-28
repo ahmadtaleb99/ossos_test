@@ -46,13 +46,29 @@ PokemonDetailsResponse _$PokemonDetailsResponseFromJson(
     PokemonDetailsResponse(
       json['id'] as int?,
       json['name'] as String?,
-      json['front_default'] as String?,
-    );
+      json['sprites'] == null
+          ? null
+          : SpritesResponse.fromJson(json['sprites'] as Map<String, dynamic>),
+    )
+      ..status = json['status'] as bool?
+      ..message = json['message'] as String?;
 
 Map<String, dynamic> _$PokemonDetailsResponseToJson(
         PokemonDetailsResponse instance) =>
     <String, dynamic>{
+      'status': instance.status,
+      'message': instance.message,
       'id': instance.id,
       'name': instance.name,
+      'sprites': instance.sprites,
+    };
+
+SpritesResponse _$SpritesResponseFromJson(Map<String, dynamic> json) =>
+    SpritesResponse(
+      json['front_default'] as String?,
+    );
+
+Map<String, dynamic> _$SpritesResponseToJson(SpritesResponse instance) =>
+    <String, dynamic>{
       'front_default': instance.image,
     };

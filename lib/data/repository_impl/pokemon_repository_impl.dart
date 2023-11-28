@@ -41,5 +41,30 @@ class PokemonsRepositoryImpl implements PokemonsRepository{
     }
   }
 
+  @override
+  Future<Either<Failure, PokemonDetails>> getPokemonDetails({required String url}) async {
+
+
+    try {
+      if (!await _networkInfo.isConnected) {
+        return Left(ErrorTypeEnum.NO_INTERNET_CONNECTION.getFailure());
+      }
+
+      final pokemonsResponse = await  _apiClient.getPokemonDetails(url);
+      if (pokemonsResponse.status == ApiInternal.FAILURE) {
+        return Left(
+            Failure(1, pokemonsResponse.message ?? ResponseMessage.UNKNOWN));
+      }
+
+      final pokemon = pokemonsResponse.toDomain();
+      return Right(pokemon);
+    } catch (error) {
+      log(error.toString());
+      return Left(ErrorHandler.handle(error).failure);
+    }
+
+
+  }
+
 
 }

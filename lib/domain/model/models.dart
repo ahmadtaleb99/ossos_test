@@ -28,7 +28,7 @@ class Pokemon extends Equatable{
 
 class PokemonDetails extends Equatable{
 
-  final String id;
+  final int id;
   final String name;
   final String image;
 
@@ -43,7 +43,7 @@ class PokemonDetails extends Equatable{
   });
 
   PokemonDetails copyWith({
-    String? id,
+    int? id,
     String? name,
     String? image,
   }) {

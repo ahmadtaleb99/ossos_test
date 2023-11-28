@@ -11,3 +11,15 @@ class PokemonsRequested extends PokemonsEvent{
   List<Object?> get props => [ ];
 
 }
+
+
+class PokemonDetailsRequested extends PokemonsEvent{
+  final String url;
+
+  PokemonDetailsRequested({required this.url});
+  @override
+  List<Object?> get props => [url ];
+
+}
+
+

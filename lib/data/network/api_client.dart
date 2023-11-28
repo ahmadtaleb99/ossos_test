@@ -6,6 +6,7 @@ abstract class ApiClient {
 
 
     Future<PokemonBaseResponse>  getPokemonns(String page);
+    Future<PokemonDetailsResponse>  getPokemonDetails(String url);
 
 
 }

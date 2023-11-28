@@ -16,3 +16,10 @@ extension PokemonMapper on PokemonResponse? {
     );
   }
 }
+
+
+extension PokemonDetailsMapper on PokemonDetailsResponse? {
+  PokemonDetails toDomain() {
+    return PokemonDetails(id: this?.id ?? 0, name: this?.name ?? '', image: this?.sprites?.image ?? '');
+  }
+}
