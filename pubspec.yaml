@@ -44,6 +44,7 @@ dependencies:
   flutter_screenutil: ^5.9.0
   dartz: ^0.10.1
   internet_connection_checker: 0.0.1+4
+  infinite_scroll_pagination: ^4.0.0
 
   dio: ^5.3.4
 
