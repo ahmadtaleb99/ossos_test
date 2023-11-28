@@ -50,7 +50,7 @@ class PokemonsList extends StatelessWidget {
     return PagedListView<int, Pokemon>(
       pagingController: pagingController,
       builderDelegate: PagedChildBuilderDelegate<Pokemon>(
-        itemBuilder: (context, item, index) => PokemonCard(image: item.url, name: item.name,),
+        itemBuilder: (context, item, index) => PokemonCard(image: item.image?? '', name: item.name,),
       ),
     );
   }

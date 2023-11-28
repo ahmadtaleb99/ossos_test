@@ -11,7 +11,7 @@ extension PokemonsMapper on PokemonBaseResponse? {
 extension PokemonMapper on PokemonResponse? {
   Pokemon toDomain() {
     return Pokemon(url:  this?.url?? '' ,
-        name: this?.name ?? '',
+        name: this?.name ?? '', image: null,
 
     );
   }

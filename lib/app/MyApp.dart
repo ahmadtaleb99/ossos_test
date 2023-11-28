@@ -38,6 +38,7 @@ class _MyAppState extends State<MyApp> {
             DeviceOrientation.portraitDown,
           ]);
           return BlocProvider(
+
             create: (context) => AppBloc(),
             child: MaterialApp(
               initialRoute: Routes.splashRoute,

@@ -1,20 +1,18 @@
 part of 'pokemons_bloc.dart';
 
-abstract class PokemonsState extends Equatable {
+abstract class PokemonsState {
   const PokemonsState();
 }
 
 class PokemonsInitial extends PokemonsState {
-  @override
-  List<Object> get props => [];
-}
 
+}
 
 class PokemonsLoaded extends PokemonsState {
   final List<Pokemon> pokemons;
 
-  @override
-  List<Object?> get props =>[ ];
+
+
 
   const PokemonsLoaded({
     required this.pokemons,
@@ -29,10 +27,9 @@ class PokemonsLoaded extends PokemonsState {
   }
 }
 
-class PokemonsLoading extends PokemonsState{
+class PokemonsLoading extends PokemonsState {
   @override
   List<Object?> get props => [];
-
 }
 
 class PokemnonsFailed extends PokemonsState {
