@@ -68,7 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 5.h),
                 child: CustomButton(
-                    text: AppStrings.page2Button, onPressed: () {}),
+                    text: AppStrings.page2Button,
+                  onPressed: () => Navigator.pushNamed(context, Routes.pokemons),
+                    ),
               ),
             ],
           ),
