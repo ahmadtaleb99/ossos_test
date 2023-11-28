@@ -9,7 +9,6 @@ import 'package:ossos_test/app/dependency_injection.dart';
 Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  HttpOverrides.global =  MyHttpOverrides();
 
   await initAppModules();
 
@@ -19,11 +18,3 @@ Future<void> main() async {
 }
 
 
-
-class MyHttpOverrides extends HttpOverrides{
-  @override
-  HttpClient createHttpClient(SecurityContext ? context){
-    return super.createHttpClient(context)
-      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
-  }
-}
