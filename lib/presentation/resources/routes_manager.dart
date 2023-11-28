@@ -29,7 +29,7 @@ class RouteGenerator {
 
 
 
-    case Routes.animations:
+    case Routes.pokemons:
         return MaterialPageRoute(builder: (BuildContext context)  =>  PokemonsPage());
 
       default:

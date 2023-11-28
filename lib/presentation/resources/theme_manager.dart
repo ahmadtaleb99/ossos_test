@@ -7,7 +7,7 @@ ThemeData getApplicationTheme() {
   return ThemeData(
     //main colors
     primaryColor: ColorManager.primary,
-    hintColor: const Color(0xffa5a5a5),
+    hintColor: ColorManager.hintColor,
 
     appBarTheme:
         AppBarTheme(color: ColorManager.lightPrimary, foregroundColor: Colors.white),
