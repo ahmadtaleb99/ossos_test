@@ -25,8 +25,14 @@ class PokemonsPage extends StatelessWidget {
             );
 
 
-            return CircularProgressIndicator();
+            if(state is PokemnonsFailed)
+              return Center(child: Text(state.message),);
+
+
+            return  Center(child: CircularProgressIndicator());
           },
+
+
         )
     );
   }
@@ -44,7 +50,7 @@ class PokemonsList extends StatelessWidget {
     return PagedListView<int, Pokemon>(
       pagingController: pagingController,
       builderDelegate: PagedChildBuilderDelegate<Pokemon>(
-        itemBuilder: (context, item, index) => PokemonCard(),
+        itemBuilder: (context, item, index) => PokemonCard(image: item.url, name: item.name,),
       ),
     );
   }

@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ossos_test/presentation/resources/color_manager.dart';
 
 class PokemonCard extends StatelessWidget {
-  const PokemonCard({Key? key}) : super(key: key);
+  const PokemonCard({Key? key, required this.image, required this.name}) : super(key: key);
+
+  final String image;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class PokemonCard extends StatelessWidget {
           Expanded(
               flex: 3,
               child: Image.network(
-                'https://www.ahmadtaleb.tech/assets/img/profile-img.jpg',
+                image,
                 loadingBuilder: (context, widget, event) => Center(
                   child: CircularProgressIndicator(),
                 ),
@@ -38,7 +41,7 @@ class PokemonCard extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Pokemon Name'),
+                child: Text(name),
               )))
         ],
       ),
